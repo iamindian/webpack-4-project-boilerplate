@@ -6,3 +6,4 @@ Usage:
 
 Feature:
 	DLL Plugin
+	Http proxy

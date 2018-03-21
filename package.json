@@ -33,5 +33,5 @@
     "dev": "./webpack-serve --config ./webpack.config.js"
   },
   "author": "linzhimin",
-  "license": "ISC"
+  "license": "MIT"
 }
