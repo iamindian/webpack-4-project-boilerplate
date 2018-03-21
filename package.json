@@ -19,6 +19,7 @@
     "less-loader": "^4.1.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-serve": "^0.2.0"
   },
