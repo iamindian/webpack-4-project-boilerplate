@@ -1604,6 +1604,12 @@
       "from": "esutils@>=2.0.2 <3.0.0",
       "resolved": "https://registry.npmjs.org/esutils/-/esutils-2.0.2.tgz"
     },
+    "eventemitter3": {
+      "version": "1.2.0",
+      "from": "eventemitter3@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/eventemitter3/-/eventemitter3-1.2.0.tgz",
+      "dev": true
+    },
     "events": {
       "version": "1.1.1",
       "from": "events@>=1.0.0 <2.0.0",
@@ -3004,6 +3010,18 @@
       "resolved": "https://registry.npmjs.org/http-errors/-/http-errors-1.6.2.tgz",
       "dev": true
     },
+    "http-proxy": {
+      "version": "1.16.2",
+      "from": "http-proxy@>=1.16.2 <2.0.0",
+      "resolved": "https://registry.npmjs.org/http-proxy/-/http-proxy-1.16.2.tgz",
+      "dev": true
+    },
+    "http-proxy-middleware": {
+      "version": "0.18.0",
+      "from": "http-proxy-middleware@>=0.18.0 <0.19.0",
+      "resolved": "http://registry.npmjs.org/http-proxy-middleware/-/http-proxy-middleware-0.18.0.tgz",
+      "dev": true
+    },
     "http-signature": {
       "version": "1.1.1",
       "from": "http-signature@>=1.1.0 <1.2.0",
@@ -3637,6 +3655,12 @@
       "resolved": "http://registry.npmjs.org/koa-compose/-/koa-compose-4.0.0.tgz",
       "dev": true
     },
+    "koa-connect": {
+      "version": "2.0.1",
+      "from": "koa-connect@latest",
+      "resolved": "http://registry.npmjs.org/koa-connect/-/koa-connect-2.0.1.tgz",
+      "dev": true
+    },
     "koa-convert": {
       "version": "1.2.0",
       "from": "koa-convert@>=1.2.0 <2.0.0",
@@ -3656,6 +3680,26 @@
       "from": "koa-is-json@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/koa-is-json/-/koa-is-json-1.0.0.tgz",
       "dev": true
+    },
+    "koa-router": {
+      "version": "7.4.0",
+      "from": "koa-router@latest",
+      "resolved": "http://registry.npmjs.org/koa-router/-/koa-router-7.4.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "debug": {
+          "version": "3.1.0",
+          "from": "debug@>=3.1.0 <4.0.0",
+          "resolved": "https://registry.npmjs.org/debug/-/debug-3.1.0.tgz",
+          "dev": true
+        },
+        "koa-compose": {
+          "version": "3.2.1",
+          "from": "koa-compose@>=3.0.0 <4.0.0",
+          "resolved": "http://registry.npmjs.org/koa-compose/-/koa-compose-3.2.1.tgz",
+          "dev": true
+        }
+      }
     },
     "koa-webpack": {
       "version": "3.0.2",
@@ -4034,6 +4078,12 @@
       "version": "1.0.0",
       "from": "merge-options@>=1.0.0 <2.0.0",
       "resolved": "http://registry.npmjs.org/merge-options/-/merge-options-1.0.0.tgz",
+      "dev": true
+    },
+    "methods": {
+      "version": "1.1.2",
+      "from": "methods@>=1.0.1 <2.0.0",
+      "resolved": "https://registry.npmjs.org/methods/-/methods-1.1.2.tgz",
       "dev": true
     },
     "micromatch": {
@@ -4615,6 +4665,20 @@
       "resolved": "https://registry.npmjs.org/path-parse/-/path-parse-1.0.5.tgz",
       "dev": true
     },
+    "path-to-regexp": {
+      "version": "1.7.0",
+      "from": "path-to-regexp@>=1.1.1 <2.0.0",
+      "resolved": "https://registry.npmjs.org/path-to-regexp/-/path-to-regexp-1.7.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "isarray": {
+          "version": "0.0.1",
+          "from": "isarray@0.0.1",
+          "resolved": "https://registry.npmjs.org/isarray/-/isarray-0.0.1.tgz",
+          "dev": true
+        }
+      }
+    },
     "path-type": {
       "version": "3.0.0",
       "from": "path-type@>=3.0.0 <4.0.0",
@@ -5006,6 +5070,12 @@
       "resolved": "https://registry.npmjs.org/require-main-filename/-/require-main-filename-1.0.1.tgz",
       "dev": true
     },
+    "requires-port": {
+      "version": "1.0.0",
+      "from": "requires-port@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/requires-port/-/requires-port-1.0.0.tgz",
+      "dev": true
+    },
     "resolve": {
       "version": "1.5.0",
       "from": "resolve@>=1.1.6 <2.0.0",
@@ -5339,6 +5409,32 @@
       "version": "0.5.7",
       "from": "source-map@>=0.5.6 <0.6.0",
       "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz"
+    },
+    "source-map-loader": {
+      "version": "0.2.3",
+      "from": "source-map-loader@latest",
+      "resolved": "http://registry.npmjs.org/source-map-loader/-/source-map-loader-0.2.3.tgz",
+      "dev": true,
+      "dependencies": {
+        "async": {
+          "version": "2.6.0",
+          "from": "async@>=2.5.0 <3.0.0",
+          "resolved": "https://registry.npmjs.org/async/-/async-2.6.0.tgz",
+          "dev": true
+        },
+        "loader-utils": {
+          "version": "0.2.17",
+          "from": "loader-utils@>=0.2.2 <0.3.0",
+          "resolved": "https://registry.npmjs.org/loader-utils/-/loader-utils-0.2.17.tgz",
+          "dev": true
+        },
+        "source-map": {
+          "version": "0.6.1",
+          "from": "source-map@>=0.6.1 <0.7.0",
+          "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz",
+          "dev": true
+        }
+      }
     },
     "source-map-resolve": {
       "version": "0.5.1",
@@ -5799,7 +5895,7 @@
     },
     "uglifyjs-webpack-plugin": {
       "version": "1.2.4",
-      "from": "uglifyjs-webpack-plugin@>=1.1.1 <2.0.0",
+      "from": "http://registry.npmjs.org/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.4.tgz",
       "resolved": "http://registry.npmjs.org/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-1.2.4.tgz",
       "dev": true,
       "dependencies": {
@@ -5932,6 +6028,12 @@
           "dev": true
         }
       }
+    },
+    "urijs": {
+      "version": "1.19.1",
+      "from": "urijs@>=1.19.0 <2.0.0",
+      "resolved": "http://registry.npmjs.org/urijs/-/urijs-1.19.1.tgz",
+      "dev": true
     },
     "urix": {
       "version": "0.1.0",
