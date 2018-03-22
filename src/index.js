@@ -1,6 +1,3 @@
-//import favicon from "./assets/images/favicon/favicon.ico"
-require('./assets/images/favicon/favicon.ico')
-
 function init(e) {
     let elements = document.getElementsByTagName("BODY");
     elements[0].innerHTML = "<div>hello webpack with dll</div>";

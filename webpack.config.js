@@ -78,6 +78,7 @@ module.exports = {
             manifest: require(path.join(__dirname, 'dist', 'vendors-manifest.json'))
         }),
         new HtmlWebpackPlugin({
+            favicon: 'src/assets/images/favicon/favicon.ico',
             hash: true,
             cache: true,
             title: "webpack4-dll-boilerplate",
