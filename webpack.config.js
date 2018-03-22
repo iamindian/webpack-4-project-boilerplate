@@ -5,25 +5,28 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const proxy = require('http-proxy-middleware');
 const convert = require('koa-connect');
 const Router = require('koa-router');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const router = new Router();
 const proxyOptions = {
-  target: 'http://www.baidu.com',
-  changeOrigin: true
+    target: 'http://www.baidu.com',
+    changeOrigin: true
 };
 router.get('/api', convert(proxy(proxyOptions)));
 module.exports = {
     mode: env || 'development',
-    devtool:"inline-source-map",
+    devtool: "inline-source-map",
     entry: {
-        app: __dirname + '/index.js',
+        index: path.join(__dirname, 'src', '/index.js'),
         vendors: path.join(__dirname, 'dist', "vendors.js")
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].js',
+        filename: '[name][hash].js',
         publicPath: '/'
     },
-    watchOptions:{
+    watchOptions: {
         ignored: /node_modules/
     },
     module: {
@@ -60,7 +63,9 @@ module.exports = {
                 test: /\.js$/,
                 use: ["source-map-loader"],
                 enforce: "pre"
-            }
+            },
+            { test: /\.(jpg|ico)$/, use: ["file-loader?name=[name].[ext]"] },
+            { test: /\.png$/, use: ["url-loader?mimetype=image/png"] }
 
         ]
     },
@@ -72,17 +77,26 @@ module.exports = {
         new webpack.DllReferencePlugin({
             manifest: require(path.join(__dirname, 'dist', 'vendors-manifest.json'))
         }),
-        new UglifyJSPlugin(),
+        new HtmlWebpackPlugin({
+            hash: true,
+            cache: true,
+            title: "webpack4-dll-boilerplate",
+            inlineSource: '.(js|css)$'
+        }),
+        new HtmlWebpackInlineSourcePlugin(),
+        //new UglifyJSPlugin(),
+        new CopyWebpackPlugin([])
+        
     ],
     serve: {
         dev: {
-            stats:"normal",
+            stats: "minimal",
         },
         add: (app, middleware, options) => {
-                middleware.webpack();
-                middleware.content();
-                app.use(router.routes());
-                app.use(router.allowedMethods());
+            middleware.webpack();
+            middleware.content();
+            app.use(router.routes());
+            app.use(router.allowedMethods());
         }
     }
 }
