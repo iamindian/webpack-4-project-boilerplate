@@ -2,6 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const env = process.env.NODE_ENV
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const proxy = require('http-proxy-middleware');
 const convert = require('koa-connect');
 const Router = require('koa-router');
@@ -23,7 +24,7 @@ module.exports = {
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name][hash].js',
+        filename: '[name].[hash].js',
         publicPath: '/'
     },
     watchOptions: {
@@ -74,6 +75,7 @@ module.exports = {
             $: 'jQuery',
             'window.$': 'jQuery'
         }),
+        //new CleanWebpackPlugin(['dist']),
         new webpack.DllReferencePlugin({
             manifest: require(path.join(__dirname, 'dist', 'vendors-manifest.json'))
         }),
@@ -85,13 +87,20 @@ module.exports = {
             inlineSource: '.(js|css)$'
         }),
         new HtmlWebpackInlineSourcePlugin(),
-        //new UglifyJSPlugin(),
-        new CopyWebpackPlugin([])
+        new UglifyJSPlugin(),
+        new CopyWebpackPlugin([]),
+        /*new webpack.optimize.CommonsChunkPlugin({
+           name: 'vendors',
+           minChunks: Infinity,
+        })*/
         
     ],
     serve: {
         dev: {
-            stats: "minimal",
+            stats: {
+                colors:true,
+                entrypoints: true,
+            }
         },
         add: (app, middleware, options) => {
             middleware.webpack();
