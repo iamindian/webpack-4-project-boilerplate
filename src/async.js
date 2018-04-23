@@ -1,1 +1,1 @@
-alert(`i am from async loaded module!`);
+console.log(`i am from async loaded module!`);

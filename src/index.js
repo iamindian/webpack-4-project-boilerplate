@@ -1,10 +1,12 @@
 async function init(e) {
+    console.profile("init");
     let elements = document.getElementsByTagName("BODY");
     elements[0].innerHTML = "<div>hello</div>";
     return import(/*webpackChunkName:'async'*/'./async').then(()=>{
-        alert(`i am after async loaded module`);
+        console.log(`i am after async loaded module`);
+        console.profileEnd("init");
     }).catch(error=>{
-        alert(`module not loaded`);
+        console.log(`module not loaded`);
     });
     /*$.ajax({
         headers: {
