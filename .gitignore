@@ -1,6 +1,6 @@
 node_modules/
-dist/
-public/
+dist/*
+public/*
 npm-debug.log
 old.webpack.config.js
 
