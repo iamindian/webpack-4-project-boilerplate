@@ -17,15 +17,15 @@ const proxyOptions = {
 };
 router.get('/api', convert(proxy(proxyOptions)));
 module.exports = {
-    mode: env || 'development',
+    mode: 'development',
     devtool: "inline-source-map",
     entry: {
-        index: path.join(__dirname, 'src', '/index.js'),
+        index: path.join(__dirname, 'src', 'index.js'),
         vendors: path.join(__dirname, 'dist', "vendors.js")
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].[chunkhash].js',
+        filename: '[name].js',
         publicPath: '/'
     },
     watchOptions: {
@@ -75,7 +75,6 @@ module.exports = {
             $: 'jQuery',
             'window.$': 'jQuery'
         }),
-        //new CleanWebpackPlugin(['dist']),
         new webpack.DllReferencePlugin({
             manifest: require(path.join(__dirname, 'dist', 'vendors-manifest.json'))
         }),
@@ -86,14 +85,8 @@ module.exports = {
             title: "webpack4-boilerplate",
             inlineSource: '.(js|css)$'
         }),
-	    new webpack.NamedModulesPlugin(),
-        //new HtmlWebpackInlineSourcePlugin(),
-        //new UglifyJSPlugin(),
-        //new CopyWebpackPlugin([]),
-        /*new webpack.optimize.CommonsChunkPlugin({
-           name: 'vendors',
-           minChunks: Infinity,
-        })*/
+        new HtmlWebpackInlineSourcePlugin(),
+        new CopyWebpackPlugin([]),
         
     ],
     serve: {
