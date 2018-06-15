@@ -8,7 +8,8 @@ const convert = require('koa-connect');
 const Router = require('koa-router');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const router = new Router();
 const proxyOptions = {
     target: 'http://www.baidu.com',

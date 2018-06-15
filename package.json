@@ -16,6 +16,7 @@
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
     "html-webpack-inline-source-plugin": "0.0.10",
@@ -35,9 +36,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./webpack-serve --colors --config ./webpack.config.dev.js --dev",
-	"build:dev":"./webpack --env dev --progress --profile --colors",
-	"build:prd":"./webpack --env prd --progress --profile --colors"
+	"dev:dll":"webpack --config ./webpack.config.dll.js",
+    "dev:serve": "./webpack-serve --colors --config ./webpack.config.dev.js --dev",
+    "build": "webpack --env prd --progress --profile --colors",
+	"deploy":"echo \"Error: no deploy specified\" && exit 1"
   },
   "author": "linzhimin",
   "license": "MIT"
