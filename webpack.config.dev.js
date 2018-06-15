@@ -24,7 +24,7 @@ module.exports = {
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].[hash].js',
+        filename: '[name].[chunkhash].js',
         publicPath: '/'
     },
     watchOptions: {
@@ -41,7 +41,6 @@ module.exports = {
                 include: __dirname + './index.js',
                 query: {
                     presets: 'es2015'
-
                 }
             },
             {
@@ -83,12 +82,13 @@ module.exports = {
             favicon: 'src/assets/images/favicon/favicon.ico',
             hash: true,
             cache: true,
-            title: "webpack4-dll-boilerplate",
+            title: "webpack4-boilerplate",
             inlineSource: '.(js|css)$'
         }),
-        new HtmlWebpackInlineSourcePlugin(),
-        new UglifyJSPlugin(),
-        new CopyWebpackPlugin([]),
+	    new webpack.NamedModulesPlugin(),
+        //new HtmlWebpackInlineSourcePlugin(),
+        //new UglifyJSPlugin(),
+        //new CopyWebpackPlugin([]),
         /*new webpack.optimize.CommonsChunkPlugin({
            name: 'vendors',
            minChunks: Infinity,
