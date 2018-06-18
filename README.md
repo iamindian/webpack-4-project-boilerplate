@@ -18,4 +18,5 @@
 * HTTP proxy middleware 
 * Babel
 * LESS
-* Cache optimization
+* Production build configuration for cache optimization
+* Webpack serve server for devevlopment and HMR
