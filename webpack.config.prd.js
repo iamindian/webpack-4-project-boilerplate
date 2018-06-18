@@ -10,12 +10,13 @@ const extractLess = new ExtractTextPlugin({
 	filename: "[name].[contenthash].css"
 });
 module.exports = {
-	mode: 'production',
+	mode: 'development',
 	entry: {
-		index: path.join(__dirname, 'src', '/index.js')
+		index: path.join(__dirname, 'src', 'index.js'),
+		gallary: path.join(__dirname, 'src' , 'gallary.js')
 	},
 	output: {
-		path: __dirname + '/dist',
+		path: __dirname + '/public',
 		filename: '[name].[chunkhash].js',
 		publicPath: '/dist'
 	},
@@ -83,7 +84,7 @@ module.exports = {
 			title: "webpack4-boilerplate",
 			inlineSource: '.(js|css)$'
 		}),
-		new UglifyJSPlugin(),
+		//new UglifyJSPlugin(),
 		//new CopyWebpackPlugin([]),
 		new webpack.HashedModuleIdsPlugin({
 			hashFunction: "sha256",
@@ -94,13 +95,21 @@ module.exports = {
 	],
 	optimization: {
 		splitChunks: {
+			minSize:30,
 			cacheGroups: {
-				commons: {
+			    default:false,
+				vendors: {
 					test: /[\\/]node_modules[\\/]/,
 					name: 'vendors',
-					chunks: 'all'
+					chunks:"all"
+				},
+				commons: {
+					name: 'commons',
+					chunks: 'initial',
+					minChunks: 2
 				}
 			}
+			
 		}
 	}
 }

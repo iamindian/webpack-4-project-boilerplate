@@ -1,4 +1,8 @@
+let a = require("./a.js");
+let b = require("./b.js");
 async function init(e) {
+	a.init();
+	b.init();
     console.profile("init");
     let elements = document.getElementsByTagName("BODY");
     elements[0].innerHTML = "<div>hello</div>";

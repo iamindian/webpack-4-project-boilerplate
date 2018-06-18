@@ -1,8 +1,6 @@
 const webpack = require("webpack");
 const path = require("path");
 const env = process.env.NODE_ENV
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const proxy = require('http-proxy-middleware');
 const convert = require('koa-connect');
 const Router = require('koa-router');
@@ -21,6 +19,7 @@ module.exports = {
     devtool: "inline-source-map",
     entry: {
         index: path.join(__dirname, 'src', 'index.js'),
+		gallary: path.join(__dirname, 'src', 'gallary.js'),
         vendors: path.join(__dirname, 'dist', "vendors.js")
     },
     output: {
@@ -85,7 +84,7 @@ module.exports = {
             title: "webpack4-boilerplate",
             inlineSource: '.(js|css)$'
         }),
-        new HtmlWebpackInlineSourcePlugin(),
+        //new HtmlWebpackInlineSourcePlugin(),
         new CopyWebpackPlugin([]),
         
     ],

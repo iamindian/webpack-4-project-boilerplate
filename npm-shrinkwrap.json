@@ -2138,13 +2138,6 @@
       "resolved": "http://registry.npmjs.org/expand-tilde/-/expand-tilde-2.0.2.tgz",
       "dev": true
     },
-    "extend": {
-      "version": "3.0.1",
-      "from": "extend@>=3.0.0 <3.1.0",
-      "resolved": "https://registry.npmjs.org/extend/-/extend-3.0.1.tgz",
-      "dev": true,
-      "optional": true
-    },
     "extend-shallow": {
       "version": "3.0.2",
       "from": "extend-shallow@>=3.0.2 <4.0.0",

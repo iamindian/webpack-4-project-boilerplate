@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require("webpack");
 const env = process.env.NODE_ENV
 module.exports = {
-	mode: env || 'development',
+	mode: 'development',
 	entry:{
 		vendors: [
 			"jquery"
