@@ -1,16 +1,17 @@
 const webpack = require("webpack");
 const path = require("path");
 const env = process.env.NODE_ENV
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const InlineSourcePlugin = require('html-webpack-inline-source-plugin')
 const extractLess = new ExtractTextPlugin({
 	filename: "[name].[contenthash].css"
 });
+const ManifestPlugin = require('webpack-manifest-plugin');
 module.exports = {
-	mode: 'development',
+	mode: 'production',
 	entry: {
 		index: path.join(__dirname, 'src', 'index.js'),
 		gallary: path.join(__dirname, 'src' , 'gallary.js')
@@ -18,7 +19,7 @@ module.exports = {
 	output: {
 		path: __dirname + '/public',
 		filename: '[name].[chunkhash].js',
-		publicPath: '/dist'
+		publicPath: '/dist/'
 	},
 	watchOptions: {
 		ignored: /node_modules/
@@ -46,13 +47,13 @@ module.exports = {
 					}]
 				})
 			},
-			{
+			/*{
 				test: /\.(png|jpg)$/,
 				loaders: 'url',
 				query: {
 					limit: 8192
 				}
-			},
+			},*/
 
 			{
 				test: /\.js$/,
@@ -60,13 +61,13 @@ module.exports = {
 				enforce: "pre"
 			},
 			{
-				test: /\.(jpg|ico)$/,
-				use: ["file-loader?name=[name].[ext]"]
+				test: /\.(jpg|ico|png)$/,
+				use: ["file-loader?name=[name].[hash].[ext]"]
 			},
-			{
+			/*{
 				test: /\.png$/,
 				use: ["url-loader?mimetype=image/png"]
-			}
+			}*/
 
 		]
 	},
@@ -76,25 +77,27 @@ module.exports = {
 			$: 'jQuery',
 			'window.$': 'jQuery'
 		}),
-		new CleanWebpackPlugin(['dist']),
+		new CleanWebpackPlugin(['public']),
 		new HtmlWebpackPlugin({
 			favicon: 'src/assets/images/favicon/favicon.ico',
 			hash: true,
 			cache: true,
 			title: "webpack4-boilerplate",
-			inlineSource: '.(js|css)$'
+			//inlineSource: '.(js|css)$',
 		}),
-		//new UglifyJSPlugin(),
-		//new CopyWebpackPlugin([]),
+		new CopyWebpackPlugin([]),
 		new webpack.HashedModuleIdsPlugin({
 			hashFunction: "sha256",
 			hashDigest: "hex",
 			hashDigestLength: 20
-		})
+		}),
+		new ManifestPlugin({publicPath:'/public/'})
 
 	],
 	optimization: {
+		runtimeChunk:true,
 		splitChunks: {
+			name:false,
 			minSize:30,
 			cacheGroups: {
 			    default:false,

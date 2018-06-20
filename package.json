@@ -19,7 +19,7 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
-    "html-webpack-inline-source-plugin": "0.0.10",
+    "html-webpack-inline-source-plugin": "http://registry.npmjs.org/html-webpack-inline-source-plugin/-/html-webpack-inline-source-plugin-0.0.10.tgz",
     "html-webpack-plugin": "^3.0.7",
     "http-proxy-middleware": "^0.18.0",
     "koa-connect": "^2.0.1",
@@ -32,6 +32,7 @@
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
     "webpack-dev-middleware": "^3.0.1",
+    "webpack-manifest-plugin": "^2.0.3",
     "webpack-serve": "^0.2.0"
   },
   "scripts": {
