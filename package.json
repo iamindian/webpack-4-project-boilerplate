@@ -31,6 +31,7 @@
     "url-loader": "http://registry.npmjs.org/url-loader/-/url-loader-1.0.1.tgz",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
+    "webpack-dashboard": "^2.0.0",
     "webpack-dev-middleware": "^3.0.1",
     "webpack-manifest-plugin": "^2.0.3",
     "webpack-serve": "^0.2.0"
@@ -38,7 +39,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:dll": "webpack --config ./webpack.config.dll.js",
-    "dev:serve": "./webpack-serve --colors --config ./webpack.config.dev.js --dev",
+    "dev:serve": "webpack-dashboard -- ./webpack-serve --colors --config ./webpack.config.dev.js --dev",
     "build": "webpack --env prd --progress --profile --colors",
     "deploy": "echo \"Error: no deploy specified\" && exit 1"
   },

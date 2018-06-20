@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 const router = new Router();
 const proxyOptions = {
     target: 'http://www.baidu.com',
@@ -53,7 +54,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg)$/,
-                loaders: 'url',
+                loaders: 'url-loader',
                 query: {
                     limit: 8192
                 }
@@ -86,6 +87,7 @@ module.exports = {
         }),
         //new HtmlWebpackInlineSourcePlugin(),
         new CopyWebpackPlugin([]),
+		new DashboardPlugin()
         
     ],
     serve: {
