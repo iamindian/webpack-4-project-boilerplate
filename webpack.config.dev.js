@@ -82,6 +82,19 @@ module.exports = {
             favicon: 'src/assets/images/favicon/favicon.ico',
             hash: true,
             cache: true,
+			inject:true,
+			chunks:['index'],
+			filename:'index.html',
+            title: "webpack4-boilerplate",
+            inlineSource: '.(js|css)$'
+        }),
+        new HtmlWebpackPlugin({
+            favicon: 'src/assets/images/favicon/favicon.ico',
+            hash: true,
+            cache: true,
+			inject:true,
+			chunks:['gallary'],
+			filename:'gallary.html',
             title: "webpack4-boilerplate",
             inlineSource: '.(js|css)$'
         }),
