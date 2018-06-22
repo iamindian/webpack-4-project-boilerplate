@@ -9,6 +9,7 @@ const InlineSourcePlugin = require('html-webpack-inline-source-plugin')
 const extractLess = new ExtractTextPlugin({
 	filename: "[name].[contenthash].css"
 });
+const CssoPlugin = require('csso-webpack-plugin').default;
 const ManifestPlugin = require('webpack-manifest-plugin');
 module.exports = {
 	mode: 'production',
@@ -91,7 +92,8 @@ module.exports = {
 			hashDigest: "hex",
 			hashDigestLength: 20
 		}),
-		new ManifestPlugin({publicPath:'/public/'})
+		new ManifestPlugin({publicPath:'/public/'}),
+		new CssoPlugin()
 
 	],
 	optimization: {

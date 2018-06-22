@@ -1,6 +1,7 @@
 let a = require("./a.js");
 let b = require("./b.js");
 let img = require("./assets/images/Fav.png");
+let less = require("./assets/styles/index.less");
 async function init(e) {
 	console.log($.fn.jquery);
 	a.init();
