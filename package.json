@@ -42,8 +42,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev:dll": "webpack --config ./webpack.config.dll.js",
-    "dev:serve": "webpack-dashboard -- ./webpack-serve --colors --config ./webpack.config.dev.js --dev",
-    "build": "webpack --env prd --progress --profile --colors",
+    "dev:serve": "./webpack-serve --colors --config ./webpack.config.dev.js --dev",
+    "dev:dashboard":"webpack-dashboard -- ./webpack-serve --colors --config ./webpack.config.dev.js --dev", 
+	"build": "webpack --env prd --progress --profile --colors",
     "deploy": "echo \"Error: no deploy specified\" && exit 1"
   },
   "author": "linzhimin",
