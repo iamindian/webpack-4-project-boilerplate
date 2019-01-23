@@ -1,14 +1,10 @@
 # Usage:
 	
-	1. npm install
-	
-	1. ln -s webpack-serve ./node_modules/.bin/webpack-serve
-	
-	1. npm run dev:dll
-	
-	1. npm run dev:serve
-	
-	1. npm run build
+* npm install
+* ln -s webpack-serve ./node_modules/.bin/webpack-serve
+* npm run dev:dll
+* npm run dev:serve
+* npm run build
 
 
 # Features:
